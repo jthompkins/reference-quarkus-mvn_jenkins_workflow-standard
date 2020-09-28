@@ -3,8 +3,8 @@ tssc-config:
   config-decryptors:
   - implementer: SOPS
   global-defaults:
-    service-name: backend
-    application-name: ref-app-quarkus
+    service-name: quarkus-mvn
+    application-name: ref-jenkins
     organization: tssc-team
     argocd-api: argocd-server-argocd.apps.tssc.rht-set.com
     maven-mirrors:
