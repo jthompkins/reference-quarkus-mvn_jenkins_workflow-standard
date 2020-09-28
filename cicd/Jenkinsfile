@@ -15,5 +15,5 @@ pipelineJava8(
     jenkinsWorkersImageTag: 'edge',
     jenkinsWorkersImagePullPolicy: 'Always',
 
-    tsscLibSourceUrl: "git+https://github.com/itewk/tssc-python-package.git@feature/better-errors"
+    tsscLibSourceUrl: "git+https://github.com/rhtconsulting/tssc-python-package.git@main"
 )
