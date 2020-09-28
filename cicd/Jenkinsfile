@@ -8,7 +8,7 @@ retriever: modernSCM([
 // run the pipeline
 pipelineJava8(
     configDir: 'cicd/tssc/',
-    credentialIDsopsPGPKey: 'tssc-reference-app-quarkus-rest-json-sops-pgp-key',
+    credentialIDsopsPGPKey: 'sops-pgp-private-key-jenkins-tssc-references',
 
     tsscLibIndexUrl: 'https://test.pypi.org/simple/',
     tsscLibVersion: '0.10.1.dev10',
