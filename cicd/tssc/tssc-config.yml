@@ -66,7 +66,7 @@ tssc-config:
   - implementer: ArgoCD
     config:
       git-email: 'napsspo+tssc@redhat.com'
-      helm-config-repo: http://gitea.gitea.svc.cluster.local:3000/tssc-references/tssc-reference-app-quarkus-rest-json-config.git
+      helm-config-repo: http://gitea.gitea.svc.cluster.local:3000/tssc-references/reference-quarkus-mvn-jenkins-config.git
       num-replicas: 1
       route-enabled: true
       readiness-probe-path: /fruits
