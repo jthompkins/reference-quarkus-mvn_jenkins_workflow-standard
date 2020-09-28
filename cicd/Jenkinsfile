@@ -10,9 +10,10 @@ pipelineJava8(
     configDir: 'cicd/tssc/',
     credentialIDsopsPGPKey: 'sops-pgp-private-key-jenkins-tssc-references',
 
-    tsscLibIndexUrl: 'https://test.pypi.org/simple/',
-    tsscLibVersion: '0.10.1.dev10',
+    jenkinsWorkersImageRegesitryURI: 'quay.io',
     jenkinsWorkersImageRepositoryName: 'tssc',
     jenkinsWorkersImageTag: 'edge',
-    jenkinsWorkersImagePullPolicy: 'Always'
+    jenkinsWorkersImagePullPolicy: 'Always',
+
+    tsscLibSourceUrl: "git+https://github.com/rhtconsulting/tssc-python-package.git@main"
 )
