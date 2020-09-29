@@ -1,5 +1,5 @@
 // Load the TSSC Jenkins Library
-library identifier: 'tssc-jenkins-library@feature/NAPSSPO-1033-pip-during-build',
+library identifier: 'tssc-jenkins-library@main',
 retriever: modernSCM([
     $class: 'GitSCMSource',
     remote: 'https://github.com/rhtconsulting/tssc-jenkins-library.git'
