@@ -15,5 +15,5 @@ pipelineJava8(
     jenkinsWorkersImageTag: 'pr-30',
     jenkinsWorkersImagePullPolicy: 'Always',
     updateTsscLibrary: true,
-    tsscLibSourceUrl: "git+https://github.com/rhtconsulting/tssc-python-package.git@main"
+    tsscLibSourceUrl: "git+https://github.com/dwinchell/tssc-python-package.git@feature/NAPSSPO-1033"
 )
