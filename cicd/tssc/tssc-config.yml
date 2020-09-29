@@ -7,10 +7,15 @@ tssc-config:
     application-name: reference-quarkus-mvn-jenkins
     organization: tssc-team
     argocd-api: argocd-server-argocd.apps.tssc.rht-set.com
+    maven-servers:
+      internal-mirror:
+        id: internal-server
+        username: tssc
     maven-mirrors:
-    - id: internal-mirror
-      url: http://artifactory.apps.tssc.rht-set.com/artifactory/release/
-      mirror-of: '*'
+      internal-mirror:
+        id: internal-mirror
+        url: http://artifactory.apps.tssc.rht-set.com/artifactory/release/
+        mirror-of: '*'
     container-registries:
         registry.redhat.io:
             username: 6340056|tssc-integration-infra
