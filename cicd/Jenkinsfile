@@ -12,7 +12,7 @@ pipelineJava8(
 
     jenkinsWorkersImageRegesitryURI: 'quay.io',
     jenkinsWorkersImageRepositoryName: 'tssc',
-    jenkinsWorkersImageTag: 'edge',
+    jenkinsWorkersImageTag: 'pr-30',
     jenkinsWorkersImagePullPolicy: 'Always',
     tsscLibSourceUrl: "git+https://github.com/rhtconsulting/tssc-python-package.git@main"
 )
