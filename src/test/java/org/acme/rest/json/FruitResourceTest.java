@@ -19,9 +19,9 @@ public class FruitResourceTest {
                 .when().get("/fruits")
                 .then()
                 .statusCode(200)
-                .body("$.size()", is(3),
+                .body("$.size()", is(2),
                         "name", containsInAnyOrder("Apple", "Banana"),
-                        "description", containsInAnyOrder("Winter fruit", "Tropical fruit", "Tropical fruit"));
+                        "description", containsInAnyOrder("Winter fruit", "Tropical fruit"));
     }
 
     @Test
@@ -33,9 +33,9 @@ public class FruitResourceTest {
                 .post("/fruits")
                 .then()
                 .statusCode(200)
-                .body("$.size()", is(4),
+                .body("$.size()", is(3),
                         "name", containsInAnyOrder("Apple", "Pear", "Banana"),
-                        "description", containsInAnyOrder("Winter fruit", "Tropical fruit", "Tropical fruit", "Winter fruit"));
+                        "description", containsInAnyOrder("Winter fruit", "Tropical fruit", "Winter fruit"));
 
         given()
                 .body("{\"name\": \"Pear\", \"description\": \"Winter fruit\"}")
@@ -44,8 +44,8 @@ public class FruitResourceTest {
                 .delete("/fruits")
                 .then()
                 .statusCode(200)
-                .body("$.size()", is(3),
+                .body("$.size()", is(2),
                         "name", containsInAnyOrder("Apple", "Banana"),
-                        "description", containsInAnyOrder("Winter fruit", "Tropical fruit", "Tropical fruit"));
+                        "description", containsInAnyOrder("Winter fruit", "Tropical fruit"));
     }
 }
