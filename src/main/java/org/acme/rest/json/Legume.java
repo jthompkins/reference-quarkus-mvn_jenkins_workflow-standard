@@ -8,9 +8,6 @@ public class Legume {
     public String name;
     public String description;
 
-    static final String USER="fail";
-    static final String PASSWORD="sonarqube";
-
     public Legume() {
     }
 
