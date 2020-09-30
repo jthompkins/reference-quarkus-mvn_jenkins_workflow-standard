@@ -1,5 +1,5 @@
 // Load the TSSC Jenkins Library
-library identifier: 'tssc-jenkins-library@main',
+library identifier: 'tssc-jenkins-library@v0.12.0',
 retriever: modernSCM([
     $class: 'GitSCMSource',
     remote: 'https://github.com/rhtconsulting/tssc-jenkins-library.git'
@@ -12,8 +12,8 @@ pipelineJava8(
 
     jenkinsWorkersImageRegesitryURI: 'quay.io',
     jenkinsWorkersImageRepositoryName: 'tssc',
-    jenkinsWorkersImageTag: 'edge',
+    jenkinsWorkersImageTag: 'v0.12.0',
     jenkinsWorkersImagePullPolicy: 'Always',
     updateTsscLibrary: true,
-    tsscLibSourceUrl: "git+https://github.com/rhtconsulting/tssc-python-package.git@main"
+    tsscLibVersion: '0.12.0'
 )
