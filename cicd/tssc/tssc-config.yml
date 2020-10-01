@@ -38,12 +38,10 @@ tssc-config:
       username: sa-tssc-reference-apps
   unit-test:
   - implementer: Maven
-    config: {
-    }
+    config: {}
   package:
   - implementer: Maven
-    config: {
-    }
+    config: {}
   static-code-analysis:
   - implementer: SonarQube
     config:
@@ -63,6 +61,13 @@ tssc-config:
     config:
       source: docker-archive:backend.tar
       destination-url: quay-quay-enterprise.apps.tssc.rht-set.com
+  sign-container-image:
+  - implementer: PodmanSign
+    config: {}
+  - implementer: CurlPush
+    config:
+      sigserver-url: http://artifactory.apps.tssc.rht-set.com/artifactory/container-image-signatures/
+      sigserver-username: tssc
   container-image-static-compliance-scan:
   - implementer: OpenSCAP
     config:
@@ -86,6 +91,5 @@ tssc-config:
       rules: cicd/ValidateEnv/
   uat:
   - implementer: Maven
-    config: {
+    config:
       selenium-hub-url: http://67.207.93.102:4444
-    }
