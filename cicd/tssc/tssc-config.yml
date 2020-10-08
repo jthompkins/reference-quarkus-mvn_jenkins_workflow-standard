@@ -66,7 +66,11 @@ tssc-config:
   container-image-static-compliance-scan:
   - implementer: OpenSCAP
     config:
-      scap-input-file: /usr/share/xml/scap/ssg/content/ssg-jre-oval.xml
+      oscap-input-definitions: https://www.redhat.com/security/data/metrics/ds/v2/RHEL8/rhel-8.ds.xml.bz2
+  container-image-static-vulnerability-scan:
+  - implementer: OpenSCAP
+    config:
+      oscap-input-definitions: https://www.redhat.com/security/data/metrics/ds/v2/RHEL8/rhel-8.ds.xml.bz2
   deploy:
   - implementer: ArgoCD
     config:
