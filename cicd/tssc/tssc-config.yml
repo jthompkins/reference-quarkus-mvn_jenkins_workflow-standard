@@ -99,16 +99,17 @@ tssc-config:
       oscap-profile: ospp
 
   container-image-static-vulnerability-scan:
+  # sample scans using OVAL file
+  - name: OpenSCAP - Vulnerability - OVAL
+    implementer: OpenSCAP
+    config:
+      oscap-input-definitions: https://www.redhat.com/security/data/oval/v2/RHEL8/rhel-8.oval.xml.bz2
   # sample scan using DataStream file
   - name: OpenSCAP - Vulnerability - DataStream
     implementer: OpenSCAP
     config:
       oscap-input-definitions: https://www.redhat.com/security/data/metrics/ds/v2/RHEL8/rhel-8.ds.xml.bz2
-  # sample scans using XCCDF file
-  - name: OpenSCAP - Vulnerability - OVAL
-    implementer: OpenSCAP
-    config:
-      oscap-input-definitions: https://www.redhat.com/security/data/oval/v2/RHEL8/rhel-8.oval.xml.bz2
+
 
   deploy:
   - implementer: ArgoCD
