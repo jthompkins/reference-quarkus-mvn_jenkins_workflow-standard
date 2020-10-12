@@ -63,6 +63,13 @@ tssc-config:
     config:
       source: docker-archive:backend.tar
       destination-url: quay-quay-enterprise.apps.tssc.rht-set.com
+  sign-container-image:
+  - implementer: PodmanSign
+    config: {}
+  - implementer: CurlPush
+    config:
+      container-image-signature-server-url: http://artifactory.apps.tssc.rht-set.com/artifactory/container-image-signatures
+      container-image-signature-server-username: tssc
   container-image-static-compliance-scan:
   - implementer: OpenSCAP
     config:
