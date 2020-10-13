@@ -1,5 +1,5 @@
 #TODO Replace this image with a TSSC openjdk image once it is available
-FROM registry.redhat.io/ubi8/openjdk-8:1.3-2
+FROM registry.redhat.io/ubi8/openjdk-8:latest
 
 USER 0
 
