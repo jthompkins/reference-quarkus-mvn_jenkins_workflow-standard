@@ -79,37 +79,36 @@ tssc-config:
   - name: OpenSCAP - Compliance (DISA STIG for Red hat Enterprise Linux 8) - DataStream
     implementer: OpenSCAP
     config:
-      oscap-input-definitions: file:///usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml
+      oscap-input-definitions: https://atopathways.redhatgov.io/compliance-as-code/scap/ssg-rhel8-ds.xml
       oscap-profile: xccdf_org.ssgproject.content_profile_stig
   - name: OpenSCAP - Compliance (Protection Profile for General Purpose Operating Systems) - DataStream
     implementer: OpenSCAP
     config:
-      oscap-input-definitions: file:///usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml
+      oscap-input-definitions: https://atopathways.redhatgov.io/compliance-as-code/scap/ssg-rhel8-ds.xml
       oscap-profile: xccdf_org.ssgproject.content_profile_ospp
   # sample scans using XCCDF file
-  - name: OpenSCAP - Compliance (DISA STIG for Red hat Enterprise Linux 8) - XCCDF
-    implementer: OpenSCAP
-    config:
-      oscap-input-definitions: file:///usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml
-      oscap-profile: stig
-  - name: OpenSCAP - Compliance (Protection Profile for General Purpose Operating Systems) - XCCDF
-    implementer: OpenSCAP
-    config:
-      oscap-input-definitions: file:///usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml
-      oscap-profile: ospp
+  #- name: OpenSCAP - Compliance (DISA STIG for Red hat Enterprise Linux 8) - XCCDF
+  #  implementer: OpenSCAP
+  #  config:
+  #    oscap-input-definitions: https://atopathways.redhatgov.io/compliance-as-code/scap/ssg-rhel8-xccdf.xml
+  #    oscap-profile: stig
+  #- name: OpenSCAP - Compliance (Protection Profile for General Purpose Operating Systems) - XCCDF
+  #  implementer: OpenSCAP
+  #  config:
+  #    oscap-input-definitions: https://atopathways.redhatgov.io/compliance-as-code/scap/ssg-rhel8-xccdf.xml
+  #    oscap-profile: ospp
 
   container-image-static-vulnerability-scan:
-  # sample scans using OVAL file
-  - name: OpenSCAP - Vulnerability - OVAL
-    implementer: OpenSCAP
-    config:
-      oscap-input-definitions: https://www.redhat.com/security/data/oval/v2/RHEL8/rhel-8.oval.xml.bz2
-  # sample scan using DataStream file
   - name: OpenSCAP - Vulnerability - DataStream
     implementer: OpenSCAP
     config:
       oscap-input-definitions: https://www.redhat.com/security/data/metrics/ds/v2/RHEL8/rhel-8.ds.xml.bz2
-
+  # sample scans using OVAL file
+  #- name: OpenSCAP - Vulnerability - OVAL
+  #  implementer: OpenSCAP
+  #  config:
+  #    oscap-input-definitions: https://www.redhat.com/security/data/oval/v2/RHEL8/rhel-8.oval.xml.bz2
+  # sample scan using DataStream file
 
   deploy:
   - implementer: ArgoCD
