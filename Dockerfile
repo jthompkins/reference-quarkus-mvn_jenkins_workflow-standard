@@ -33,15 +33,15 @@ RUN sed --follow-symlinks -i 's/\<nullok\>//g' /etc/pam.d/system-auth && \
 # Remediation Source: https://github.com/ComplianceAsCode/content/blob/master/linux_os/guide/system/software/integrity/software-integrity/rpm_verification/rpm_verify_permissions/bash/shared.sh
 RUN /bin/bash -c "\
     declare -A SETPERMS_RPM_DICT; \
-    readarray -t FILES_WITH_INCORRECT_PERMS < <(rpm -Va --nofiledigest | awk '{ if (substr($0,2,1)=="M") print $NF }'); \
-    for FILE_PATH in \"${FILES_WITH_INCORRECT_PERMS[@]}\"; \
+    readarray -t FILES_WITH_INCORRECT_PERMS < <(rpm -Va --nofiledigest | awk '{ if (substr(\$0,2,1)==\"M\") print \$NF }'); \
+    for FILE_PATH in \"\${FILES_WITH_INCORRECT_PERMS[@]}\"; \
     do \
-        RPM_PACKAGE=$(rpm -qf \"$FILE_PATH\"); \
-        SETPERMS_RPM_DICT[\"$RPM_PACKAGE\"]=1; \
+        RPM_PACKAGE=$(rpm -qf \"\$FILE_PATH\"); \
+        SETPERMS_RPM_DICT[\"\$RPM_PACKAGE\"]=1; \
     done; \
-    for RPM_PACKAGE in \"${!SETPERMS_RPM_DICT[@]}\"; \
+    for RPM_PACKAGE in \"\${!SETPERMS_RPM_DICT[@]}\"; \
     do \
-        rpm --setperms \"${RPM_PACKAGE}\"; \
+        rpm --setperms \"\${RPM_PACKAGE}\"; \
     done\
 "
 
