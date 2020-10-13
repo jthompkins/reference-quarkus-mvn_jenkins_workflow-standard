@@ -19,7 +19,7 @@ deploymentNamespace: {{ deployment_namespace }}
 
 service: {{ application_name }}-{{service_name }}
 image:
-  repository: {{ image_url }}/{{ organization }}/{{ application_name }}-{{service_name}}
+  repository: {{ container_image_repo_uri }}
   tag: {{ image_version }}
   pullPolicy: Always
 
