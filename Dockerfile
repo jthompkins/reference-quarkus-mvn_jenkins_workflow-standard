@@ -12,34 +12,38 @@ RUN dnf update -y && \
 ##########################
 # compliance remediation #
 ##########################
-# NOTE:
+# NOTE / WARNING / IMPORTANT:
 #   This is NOT the right way to do this.
 #   The RIGHT way would be to not use Dockerfile and use a real buildah build where we can
 #   run oscap remediation against the mounted file system and then close up the file system
 #   into an image.
+#   But.....right now.....just trying to get a reference working....
 
 # Title	Prevent Login to Accounts With Empty Password
 # Rule	xccdf_org.ssgproject.content_rule_no_empty_passwords
 # Ident	CCE-80841-0
 # Remediation Source: https://github.com/ComplianceAsCode/content/blob/master/linux_os/guide/system/accounts/accounts-restrictions/password_storage/no_empty_passwords/bash/shared.sh
-RUN sed --follow-symlinks -i 's/\<nullok\>//g' /etc/pam.d/system-auth
-RUN sed --follow-symlinks -i 's/\<nullok\>//g' /etc/pam.d/password-auth
+RUN sed --follow-symlinks -i 's/\<nullok\>//g' /etc/pam.d/system-auth && \
+    sed --follow-symlinks -i 's/\<nullok\>//g' /etc/pam.d/password-auth
 
 # Title	Verify and Correct File Permissions with RPM
 # Rule	xccdf_org.ssgproject.content_rule_rpm_verify_permissions
 # Ident	CCE-80858-4
 # Result	fail
-RUN declare -A SETPERMS_RPM_DICT; \
-    readarray -t FILES_WITH_INCORRECT_PERMS < <(rpm -Va --nofiledigest | awk '{ if (substr($0,2,1)=="M") print $NF }'); \
-    for FILE_PATH in "${FILES_WITH_INCORRECT_PERMS[@]}"; \
-    do \
-        RPM_PACKAGE=$(rpm -qf "$FILE_PATH"); \
-        SETPERMS_RPM_DICT["$RPM_PACKAGE"]=1; \
-    done; \
-    for RPM_PACKAGE in "${!SETPERMS_RPM_DICT[@]}"; \
-    do \
-        rpm --setperms "${RPM_PACKAGE}"; \
+# Remediation Source: https://github.com/ComplianceAsCode/content/blob/master/linux_os/guide/system/software/integrity/software-integrity/rpm_verification/rpm_verify_permissions/bash/shared.sh
+RUN /bin/bash -c "(
+    declare -A SETPERMS_RPM_DICT;
+    readarray -t FILES_WITH_INCORRECT_PERMS < <(rpm -Va --nofiledigest | awk '{ if (substr($0,2,1)=="M") print $NF }');
+    for FILE_PATH in "${FILES_WITH_INCORRECT_PERMS[@]}";
+    do
+        RPM_PACKAGE=$(rpm -qf "$FILE_PATH");
+        SETPERMS_RPM_DICT["$RPM_PACKAGE"]=1;
+    done;
+    for RPM_PACKAGE in "${!SETPERMS_RPM_DICT[@]}";
+    do
+        rpm --setperms "${RPM_PACKAGE}";
     done
+    )"
 
 ###############
 # install app #
