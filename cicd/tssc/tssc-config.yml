@@ -76,26 +76,32 @@ tssc-config:
 
   container-image-static-compliance-scan:
   # sample scans using DataStream file (preferred)
-  - name: OpenSCAP - Compliance (Protection Profile for General Purpose Operating Systems) - DataStream
+  - name: OpenSCAP - Compliance - Standard System Security Profile for Red Hat Enterprise Linux 8
     implementer: OpenSCAP
     config:
       oscap-input-definitions: https://atopathways.redhatgov.io/compliance-as-code/scap/ssg-rhel8-ds.xml
-      oscap-profile: xccdf_org.ssgproject.content_profile_ospp
+      oscap-profile: xccdf_org.ssgproject.content_profile_standard
 
-  #- name: OpenSCAP - Compliance (DISA STIG for Red hat Enterprise Linux 8) - DataStream
+  #- name: OpenSCAP - Compliance - Protection Profile for General Purpose Operating Systems
+  #  implementer: OpenSCAP
+  #  config:
+  #    oscap-input-definitions: https://atopathways.redhatgov.io/compliance-as-code/scap/ssg-rhel8-ds.xml
+  #    oscap-profile: xccdf_org.ssgproject.content_profile_ospp
+
+  #- name: OpenSCAP - Compliance - DISA STIG for Red hat Enterprise Linux 8
   #  implementer: OpenSCAP
   #  config:
   #    oscap-input-definitions: https://atopathways.redhatgov.io/compliance-as-code/scap/ssg-rhel8-ds.xml
   #    oscap-profile: xccdf_org.ssgproject.content_profile_stig
 
   # sample scans using XCCDF file (okay if you don't have access to DataStream)
-  #- name: OpenSCAP - Compliance (DISA STIG for Red hat Enterprise Linux 8) - XCCDF
+  #- name: OpenSCAP - Compliance - DISA STIG for Red hat Enterprise Linux 8
   #  implementer: OpenSCAP
   #  config:
   #    oscap-input-definitions: https://atopathways.redhatgov.io/compliance-as-code/scap/ssg-rhel8-xccdf.xml
   #    oscap-profile: stig
 
-  #- name: OpenSCAP - Compliance (Protection Profile for General Purpose Operating Systems) - XCCDF
+  #- name: OpenSCAP - Compliance - Protection Profile for General Purpose Operating Systems
   #  implementer: OpenSCAP
   #  config:
   #    oscap-input-definitions: https://atopathways.redhatgov.io/compliance-as-code/scap/ssg-rhel8-xccdf.xml
