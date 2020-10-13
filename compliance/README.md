@@ -5,4 +5,3 @@ run oscap remediation against the mounted file system and then close up the file
 into an image.
 
 But.....right now.....just trying to get a reference working....
-
