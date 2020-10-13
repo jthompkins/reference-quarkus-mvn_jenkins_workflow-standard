@@ -75,23 +75,26 @@ tssc-config:
       destination-url: quay-quay-enterprise.apps.tssc.rht-set.com
 
   container-image-static-compliance-scan:
-  # sample scans using DatStream file
-  - name: OpenSCAP - Compliance (DISA STIG for Red hat Enterprise Linux 8) - DataStream
-    implementer: OpenSCAP
-    config:
-      oscap-input-definitions: https://atopathways.redhatgov.io/compliance-as-code/scap/ssg-rhel8-ds.xml
-      oscap-profile: xccdf_org.ssgproject.content_profile_stig
+  # sample scans using DataStream file (preferred)
   - name: OpenSCAP - Compliance (Protection Profile for General Purpose Operating Systems) - DataStream
     implementer: OpenSCAP
     config:
       oscap-input-definitions: https://atopathways.redhatgov.io/compliance-as-code/scap/ssg-rhel8-ds.xml
       oscap-profile: xccdf_org.ssgproject.content_profile_ospp
-  # sample scans using XCCDF file
+
+  #- name: OpenSCAP - Compliance (DISA STIG for Red hat Enterprise Linux 8) - DataStream
+  #  implementer: OpenSCAP
+  #  config:
+  #    oscap-input-definitions: https://atopathways.redhatgov.io/compliance-as-code/scap/ssg-rhel8-ds.xml
+  #    oscap-profile: xccdf_org.ssgproject.content_profile_stig
+
+  # sample scans using XCCDF file (okay if you don't have access to DataStream)
   #- name: OpenSCAP - Compliance (DISA STIG for Red hat Enterprise Linux 8) - XCCDF
   #  implementer: OpenSCAP
   #  config:
   #    oscap-input-definitions: https://atopathways.redhatgov.io/compliance-as-code/scap/ssg-rhel8-xccdf.xml
   #    oscap-profile: stig
+
   #- name: OpenSCAP - Compliance (Protection Profile for General Purpose Operating Systems) - XCCDF
   #  implementer: OpenSCAP
   #  config:
@@ -99,11 +102,13 @@ tssc-config:
   #    oscap-profile: ospp
 
   container-image-static-vulnerability-scan:
+  # sample vulnerability scan using XCCDF file (preferred)
   - name: OpenSCAP - Vulnerability - DataStream
     implementer: OpenSCAP
     config:
       oscap-input-definitions: https://www.redhat.com/security/data/metrics/ds/v2/RHEL8/rhel-8.ds.xml.bz2
-  # sample scans using OVAL file
+
+  # sample scans using OVAL file (if you must, but XCCDF is muuuuch better if availabe)
   #- name: OpenSCAP - Vulnerability - OVAL
   #  implementer: OpenSCAP
   #  config:
