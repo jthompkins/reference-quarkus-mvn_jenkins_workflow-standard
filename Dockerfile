@@ -18,9 +18,9 @@ RUN dnf update -y && \
 #   run oscap remediation against the mounted file system and then close up the file system
 #   into an image.
 #   But.....right now.....just trying to get a reference working....
-COPY compliance/* /var/lib/compliance
-RUN /var/lib/compliance/xccdf_org.ssgproject.content_rule_no_empty_passwords.sh && \
-    /var/lib/compliance/xccdf_org.ssgproject.content_rule_rpm_verify_permissions.sh
+COPY compliance/ /var/lib/compliance/
+RUN /var/lib/compliance/xccdf_org.ssgproject.content_rule_no_empty_passwords.sh \
+    && /var/lib/compliance/xccdf_org.ssgproject.content_rule_rpm_verify_permissions.sh
 
 ###############
 # install app #

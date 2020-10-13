@@ -3,7 +3,6 @@
 # Title	Verify and Correct File Permissions with RPM
 # Rule	xccdf_org.ssgproject.content_rule_rpm_verify_permissions
 # Ident	CCE-80858-4
-# Result	fail
 # Remediation Source: https://github.com/ComplianceAsCode/content/blob/master/linux_os/guide/system/software/integrity/software-integrity/rpm_verification/rpm_verify_permissions/bash/shared.sh
 
 # platform = multi_platform_wrlinux,multi_platform_rhel,multi_platform_ol,multi_platform_fedora,multi_platform_rhv
