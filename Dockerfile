@@ -22,6 +22,10 @@ COPY compliance/ /var/lib/compliance/
 RUN /var/lib/compliance/xccdf_org.ssgproject.content_rule_no_empty_passwords.sh \
     && /var/lib/compliance/xccdf_org.ssgproject.content_rule_rpm_verify_permissions.sh
 
+# NOTE / WARNING / IMPORTANT:
+#   work around for https://bugzilla.redhat.com/show_bug.cgi?id=1798685
+RUN rm -f /var/log/lastlog
+
 ###############
 # install app #
 ###############

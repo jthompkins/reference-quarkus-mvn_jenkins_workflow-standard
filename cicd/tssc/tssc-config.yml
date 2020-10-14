@@ -80,7 +80,7 @@ tssc-config:
     implementer: OpenSCAP
     config:
       oscap-input-definitions: https://atopathways.redhatgov.io/compliance-as-code/scap/ssg-rhel8-ds.xml
-      oscap-profile: xccdf_org.ssgproject.content_profile_standard
+      oscap-profile: 
 
   #- name: OpenSCAP - Compliance - Protection Profile for General Purpose Operating Systems
   #  implementer: OpenSCAP
