@@ -1,5 +1,5 @@
 // Load the TSSC Jenkins Library
-library identifier: 'tssc-jenkins-library@feature/NAPSSPO-1028',
+library identifier: 'tssc-jenkins-library@main',
 retriever: modernSCM([
     $class: 'GitSCMSource',
     remote: 'https://github.com/rhtconsulting/tssc-jenkins-library.git'
@@ -12,7 +12,7 @@ pipelineJava8(
 
     jenkinsWorkersImageRegesitryURI: 'quay.io',
     jenkinsWorkersImageRepositoryName: 'tssc',
-    jenkinsWorkersImageTag: 'sha-c8bdcd0f',
+    jenkinsWorkersImageTag: 'edge',
     jenkinsWorkersImagePullPolicy: 'Always',
     updateTsscLibrary: true,
     tsscLibSourceUrl: "git+https://github.com/rhtconsulting/tssc-python-package.git@main"
