@@ -71,7 +71,6 @@ tssc-config:
   push-container-image:
   - implementer: Skopeo
     config:
-      source: docker-archive:backend.tar
       destination-url: quay-quay-enterprise.apps.tssc.rht-set.com
 
   container-image-static-compliance-scan:
