@@ -15,6 +15,6 @@ pipelineMaven(
     jenkinsWorkersImageTag: 'edge',
     jenkinsWorkersImagePullPolicy: 'Always',
 
-    updateTsscLibrary: true
-    tsscLibSourceUrl: "git+https://github.com/rhtconsulting/tssc-python-package.git@main",
+    updateTsscLibrary: true,
+    tsscLibSourceUrl: "git+https://github.com/rhtconsulting/tssc-python-package.git@main"
 )
