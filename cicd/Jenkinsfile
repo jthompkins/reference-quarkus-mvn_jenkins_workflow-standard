@@ -1,12 +1,12 @@
 // Load the TSSC Jenkins Library
-library identifier: 'tssc-jenkins-library@feature/NASSPO-347',
+library identifier: 'tssc-jenkins-library@main',
 retriever: modernSCM([
     $class: 'GitSCMSource',
-    remote: 'https://github.com/itewk/tssc-jenkins-library.git'
+    remote: 'https://github.com/rhtconsulting/tssc-jenkins-library.git'
 ])
 
 // run the pipeline
-pipelineJava8(
+pipelineMaven(
     configDir: 'cicd/tssc/',
     credentialIDsopsPGPKey: 'sops-pgp-private-key-jenkins-tssc-references',
 
@@ -15,6 +15,6 @@ pipelineJava8(
     jenkinsWorkersImageTag: 'edge',
     jenkinsWorkersImagePullPolicy: 'Always',
 
-    tsscLibSourceUrl: "git+https://github.com/itewk/tssc-python-package.git@feature/NASSPO-347",
     updateTsscLibrary: true
+    tsscLibSourceUrl: "git+https://github.com/rhtconsulting/tssc-python-package.git@main",
 )
