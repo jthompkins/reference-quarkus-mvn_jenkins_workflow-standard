@@ -15,7 +15,7 @@ pipelineMaven(
     jenkinsWorkersImageTag: 'v0.13.0',
     jenkinsWorkersImagePullPolicy: 'Always',
 
-    releaseBranchPatterns: ['main',^'release/.*$'],
+    releaseBranchPatterns: ['main','^release/.*$'],
     devBranchPatterns: ['^feature/.*$', '^PR-.*$', '^release/.*$'],
 
     updateTsscLibrary: true,
