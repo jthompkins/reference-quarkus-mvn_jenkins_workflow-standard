@@ -1,20 +1,17 @@
 // Load the TSSC Jenkins Library
-library identifier: 'tssc-jenkins-library@main',
+library identifier: 'tssc-jenkins-library@feature/refactor',
 retriever: modernSCM([
     $class: 'GitSCMSource',
-    remote: 'https://github.com/rhtconsulting/tssc-jenkins-library.git'
+    remote: 'https://github.com/itewk/tssc-jenkins-library.git'
 ])
 
 // run the pipeline
-pipelineMaven(
-    configDir: 'cicd/tssc/',
+tsscWorkflow(
+    tsscConfigDir: 'cicd/tssc/',
     credentialIDsopsPGPKey: 'sops-pgp-private-key-jenkins-tssc-references',
 
-    jenkinsWorkersImageRegesitryURI: 'quay.io',
-    jenkinsWorkersImageRepositoryName: 'tssc',
-    jenkinsWorkersImageTag: 'edge',
-    jenkinsWorkersImagePullPolicy: 'Always',
+    ciWorkersImagePullPolicy: 'Always',
 
-    updateTsscLibrary: true,
+    updateTSSCLibrary: true,
     tsscLibSourceUrl: "git+https://github.com/rhtconsulting/tssc-python-package.git@main"
 )
