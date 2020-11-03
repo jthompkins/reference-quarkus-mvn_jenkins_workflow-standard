@@ -6,8 +6,8 @@ USER 0
 ##############################
 # vulenerability remediation #
 ##############################
-RUN dnf update -y && \
-    dnf clean all
+#RUN dnf update -y && \
+#    dnf clean all
 
 ##########################
 # compliance remediation #
