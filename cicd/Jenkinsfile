@@ -8,7 +8,7 @@ retriever: modernSCM([
 // run the pipeline
 tsscWorkflow(
     tsscConfigDir: 'cicd/tssc/',
-    credentialIDsopsPGPKey: 'sops-pgp-private-key-jenkins-tssc-references',
+    pgpKeysSecretName: 'pgp-keys-reference-quarkus-mvn-foobar-fruit',
 
     ciWorkersImagePullPolicy: 'Always',
 
