@@ -4,9 +4,10 @@ tssc-config:
   - implementer: SOPS
 
   global-defaults:
+    organization: ploigos-ref
+    application-name: ref-quarkus-mvn-jenkins-std
     service-name: fruit
-    application-name: reference-quarkus-mvn-jenkins
-    organization: tssc-team
+
     argocd-api: argocd-server-argocd.apps.tssc.rht-set.com
     maven-servers:
       internal-mirror:
@@ -21,7 +22,7 @@ tssc-config:
         registry.redhat.io:
             username: 6340056|tssc-integration-infra
         quay-quay-enterprise.apps.tssc.rht-set.com:
-            username: tssc-team+tssc_reference_app_quarkus_rest_json
+            username: ploigos-ref+workflow_reference_quarkus_mvn_jenkins_workflow_standard
 
   global-environment-defaults:
     DEV:
@@ -39,7 +40,7 @@ tssc-config:
   tag-source:
   - implementer: Git
     config:
-      username: sa-tssc-reference-apps
+      username: sa-ploigos-ref-apps
 
   unit-test:
   - implementer: Maven
@@ -90,37 +91,6 @@ tssc-config:
       oscap-tailoring-uri: https://raw.githubusercontent.com/rhtconsulting/tssc-example-oscap-content/main/xccdf_com.redhat.tssc_profile_example_ubi8-tailoring-xccdf.xml
       oscap-profile: xccdf_com.redhat.tssc_profile_example_ubi8
 
-  #- name: OpenSCAP - Compliance - Standard System Security Profile for Red Hat Enterprise Linux 8
-  #  implementer: OpenSCAP
-  #  config:
-  #    oscap-input-definitions-uri: https://atopathways.redhatgov.io/compliance-as-code/scap/ssg-rhel8-ds.xml
-  #    oscap-profile: xccdf_org.ssgproject.content_profile_standard
-
-  #- name: OpenSCAP - Compliance - Protection Profile for General Purpose Operating Systems
-  #  implementer: OpenSCAP
-  #  config:
-  #    oscap-input-definitions-uri: https://atopathways.redhatgov.io/compliance-as-code/scap/ssg-rhel8-ds.xml
-  #    oscap-profile: xccdf_org.ssgproject.content_profile_ospp
-
-  #- name: OpenSCAP - Compliance - DISA STIG for Red hat Enterprise Linux 8
-  #  implementer: OpenSCAP
-  #  config:
-  #    oscap-input-definitions-uri: https://atopathways.redhatgov.io/compliance-as-code/scap/ssg-rhel8-ds.xml
-  #    oscap-profile: xccdf_org.ssgproject.content_profile_stig
-
-  # sample scans using XCCDF file (okay if you don't have access to DataStream)
-  #- name: OpenSCAP - Compliance - DISA STIG for Red hat Enterprise Linux 8
-  #  implementer: OpenSCAP
-  #  config:
-  #    oscap-input-definitions-uri: https://atopathways.redhatgov.io/compliance-as-code/scap/ssg-rhel8-xccdf.xml
-  #    oscap-profile: stig
-
-  #- name: OpenSCAP - Compliance - Protection Profile for General Purpose Operating Systems
-  #  implementer: OpenSCAP
-  #  config:
-  #    oscap-input-definitions-uri: https://atopathways.redhatgov.io/compliance-as-code/scap/ssg-rhel8-xccdf.xml
-  #    oscap-profile: ospp
-
   container-image-static-vulnerability-scan:
   # sample vulnerability scan using XCCDF file (preferred)
   - name: OpenSCAP - Vulnerability - DataStream
@@ -128,25 +98,19 @@ tssc-config:
     config:
       oscap-input-definitions-uri: https://www.redhat.com/security/data/metrics/ds/v2/RHEL8/rhel-8.ds.xml.bz2
 
-  # sample scans using OVAL file (if you must, but XCCDF is muuuuch better if availabe)
-  #- name: OpenSCAP - Vulnerability - OVAL
-  #  implementer: OpenSCAP
-  #  config:
-  #    oscap-input-definitions-uri: https://www.redhat.com/security/data/oval/v2/RHEL8/rhel-8.oval.xml.bz2
-  # sample scan using DataStream file
-
   deploy:
   - implementer: ArgoCD
     config:
       git-email: 'napsspo+tssc@redhat.com'
-      helm-config-repo: http://gitea.gitea.svc.cluster.local:3000/tssc-references/reference-quarkus-mvn-jenkins-config.git
+      helm-config-repo: http://gitea.tssc.rht-set.com/ploigos-reference-applications/reference-quarkus-mvn-cloud-resources_jenkins_workflow-standard.git
+      argocd-helm-chart-path: charts/reference-quarkus-mvn-deploy
       num-replicas: 1
       route-enabled: true
       readiness-probe-path: /fruits
       liveness-probe-path: /fruits
       destination-url: docker://quay-quay-enterprise.apps.tssc.rht-set.com
       argocd-username: admin
-      git-username: sa-tssc-reference-apps
+      git-username: sa-ploigos-ref-apps
 
   validate-environment-configuration:
   - implementer: ConfiglintFromArgocd
