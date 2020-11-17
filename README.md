@@ -1,23 +1,10 @@
-Source: https://github.com/quarkusio/quarkus-quickstarts/tree/master/rest-json-quickstart
+# reference-quarkus-mvn (Jenkins) (Workflow: Standard)
 
-## CI Tool Configuration
+A reference application that is built and unit tested with Maven
+that can be run through the [Ploigos](https://github.com/ploigos) Workflow using
+[Jenkins](https://github.com/jenkins-infra/) for the workflow runner service.
 
-TODO
+## Source
 
-## Tests
-
-### Unit Tests
-Run the unit tests:
-```
-mvn test
-```
-
-### UAT Tests
-Run the user acceptance tests:
-```
-mvn -Pintegration-test test -Dselenium.hub.url=SELENIUM_HUB_URL -Dtarget.base.url=TARGET_BASE_URL
-```
-
-SELENIUM_HUB_URL is the URL where the Selenium Hub is available and listening.
-
-TARGET_BASE_URL is the URL of this running application.
+This is a copy/paste/fork of [rest-json-quickstart](https://github.com/quarkusio/quarkus-quickstarts/tree/master/rest-json-quickstart)
+maintained specifically do integration testing for [Ploigos](https://github.com/ploigos).
