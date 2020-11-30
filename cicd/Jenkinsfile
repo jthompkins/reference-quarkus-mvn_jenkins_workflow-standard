@@ -21,5 +21,5 @@ ploigosWorkflowStandard(
     workflowWorkerImageUAT: 'tssc/tssc-tool-maven:nightly',
 
     stepRunnerUpdateLibrary: true,
-    stepRunnerLibSourceUrl: "git+https://github.com/rhtconsulting/tssc-python-package.git@main"
+    stepRunnerLibSourceUrl: "git+https://github.com/rhtconsulting/tssc-python-package.git@refactor"
 )
