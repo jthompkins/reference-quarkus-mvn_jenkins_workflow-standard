@@ -1,4 +1,4 @@
-// Load the TSSC Jenkins Library
+// Load the Ploigos Jenkins Library
 library identifier: 'ploigos-jenkins-library@feature/refactor',
 retriever: modernSCM([
     $class: 'GitSCMSource',
@@ -13,12 +13,17 @@ ploigosWorkflowStandard(
     workflowServiceAccountName: 'ploigos-workflow-ref-quarkus-mvn-jenkins-std-fruit',
 
     workflowWorkersImagePullPolicy: 'Always',
-
-    workflowWorkerImageUnitTest: 'tssc/tssc-tool-maven:nightly',
-    workflowWorkerImagePackage: 'tssc/tssc-tool-maven:nightly',
-    workflowWorkerImageStaticCodeAnalysis: 'tssc/tssc-tool-sonar:nightly',
-    workflowWorkerImagePushArtifacts: 'tssc/tssc-tool-maven:nightly',
-    workflowWorkerImageUAT: 'tssc/tssc-tool-maven:nightly',
+    workflowWorkerImageDefault: 'ploigos/ploigos-ci-agent-jenkins:edge',
+    workflowWorkerImageUnitTest: 'ploigos/ploigos-tool-maven:edge',
+    workflowWorkerImagePackage: 'ploigos/ploigos-tool-maven:edge',
+    workflowWorkerImageStaticCodeAnalysis: 'ploigos/ploigos-tool-sonar:edge',
+    workflowWorkerImagePushArtifacts: 'ploigos/ploigos-tool-maven:edge',
+    workflowWorkerImageContainerOperations: 'ploigos/ploigos-tool-containers:edge',
+    workflowWorkerImageContainerImageStaticComplianceScan: 'ploigos/ploigos-tool-openscap:edge',
+    workflowWorkerImageContainerImageStaticVulnerabilityScan: 'ploigos/ploigos-tool-openscap:edge',
+    workflowWorkerImageDeploy: 'ploigos/ploigos-tool-argocd:edge',
+    workflowWorkerImageValidateEnvironmentConfiguration: 'ploigos/ploigos-tool-config-lint:edge',
+    workflowWorkerImageUAT: 'ploigos/ploigos-tool-maven:edge',
 
     stepRunnerUpdateLibrary: true,
     stepRunnerLibSourceUrl: "git+https://github.com/rhtconsulting/tssc-python-package.git@main"
