@@ -12,15 +12,19 @@ ploigosWorkflowStandard(
 
     workflowServiceAccountName: 'ploigos-workflow-ref-quarkus-mvn-jenkins-std-fruit',
 
-    workflowWorkerImageDefault: 'ploigos/ploigos-ci-agent-jenkins:v0.14.0',
-    workflowWorkerImageUnitTest: 'ploigos/ploigos-tool-maven:v0.14.0',
-    workflowWorkerImagePackage: 'ploigos/ploigos-tool-maven:v0.14.0',
-    workflowWorkerImageStaticCodeAnalysis: 'ploigos/ploigos-tool-sonar:v0.14.0',
-    workflowWorkerImagePushArtifacts: 'ploigos/ploigos-tool-maven:v0.14.0',
-    workflowWorkerImageContainerOperations: 'ploigos/ploigos-tool-containers:v0.14.0',
-    workflowWorkerImageContainerImageStaticComplianceScan: 'ploigos/ploigos-tool-openscap:v0.14.0',
-    workflowWorkerImageContainerImageStaticVulnerabilityScan: 'ploigos/ploigos-tool-openscap:v0.14.0',
-    workflowWorkerImageDeploy: 'ploigos/ploigos-tool-argocd:v0.14.0',
-    workflowWorkerImageValidateEnvironmentConfiguration: 'ploigos/ploigos-tool-config-lint:v0.14.0',
-    workflowWorkerImageUAT: 'ploigos/ploigos-tool-maven:v0.14.0'
+    workflowWorkerImageDefault: 'ploigos/ploigos-ci-agent-jenkins:pr-48',
+    workflowWorkerImageUnitTest: 'ploigos/ploigos-tool-maven:pr-48',
+    workflowWorkerImagePackage: 'ploigos/ploigos-tool-maven:pr-48',
+    workflowWorkerImageStaticCodeAnalysis: 'ploigos/ploigos-tool-sonar:pr-48',
+    workflowWorkerImagePushArtifacts: 'ploigos/ploigos-tool-maven:pr-48',
+    workflowWorkerImageContainerOperations: 'ploigos/ploigos-tool-containers:pr-48',
+    workflowWorkerImageContainerImageStaticComplianceScan: 'ploigos/ploigos-tool-openscap:pr-48',
+    workflowWorkerImageContainerImageStaticVulnerabilityScan: 'ploigos/ploigos-tool-openscap:pr-48',
+    workflowWorkerImageDeploy: 'ploigos/ploigos-tool-argocd:pr-48',
+    workflowWorkerImageValidateEnvironmentConfiguration: 'ploigos/ploigos-tool-config-lint:pr-48',
+    workflowWorkerImageUAT: 'ploigos/ploigos-tool-maven:pr-48',
+
+    stepRunnerUpdateLibrary: true,
+    stepRunnerLibSourceUrl: 'git+https://github.com/rhtconsulting/tssc-python-package.git@refactor',
+    verbose: 'true'
 )
