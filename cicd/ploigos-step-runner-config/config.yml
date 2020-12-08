@@ -40,7 +40,7 @@ tssc-config:
   tag-source:
   - implementer: Git
     config:
-      username: sa-ploigos-ref-apps
+      git-username: sa-ploigos-ref-apps
 
   unit-test:
   - implementer: Maven
@@ -56,7 +56,7 @@ tssc-config:
   - implementer: SonarQube
     config:
       url: https://sonarqube-sonarqube.apps.tssc.rht-set.com/
-      user: reference-apps-sa
+      username: reference-apps-sa
 
   push-artifacts:
   - implementer: Maven
@@ -102,7 +102,7 @@ tssc-config:
   - implementer: ArgoCD
     config:
       git-email: 'napsspo+tssc@redhat.com'
-      helm-config-repo: http://gitea.tssc.rht-set.com/ploigos-reference-applications/reference-quarkus-mvn-cloud-resources_jenkins_workflow-standard.git
+      deployment-config-repo: http://gitea.tssc.rht-set.com/ploigos-reference-applications/reference-quarkus-mvn-cloud-resources_jenkins_workflow-standard.git
       argocd-helm-chart-path: charts/reference-quarkus-mvn-deploy
       num-replicas: 1
       route-enabled: true
@@ -110,6 +110,7 @@ tssc-config:
       liveness-probe-path: /fruits
       destination-url: docker://quay-quay-enterprise.apps.tssc.rht-set.com
       argocd-username: admin
+      argocd-skip-tls: True
       git-username: sa-ploigos-ref-apps
 
   validate-environment-configuration:
@@ -119,7 +120,7 @@ tssc-config:
       rules: cicd/ValidateEnv/
 
   uat:
-  - implementer: Maven
+  - implementer: MavenSeleniumCucumber
     config: {
       selenium-hub-url: http://67.207.93.102:4444
     }
