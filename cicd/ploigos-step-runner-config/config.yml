@@ -40,7 +40,7 @@ tssc-config:
   tag-source:
   - implementer: Git
     config:
-      username: sa-ploigos-ref-apps
+      git-username: sa-ploigos-ref-apps
 
   unit-test:
   - implementer: Maven
@@ -56,7 +56,7 @@ tssc-config:
   - implementer: SonarQube
     config:
       url: https://sonarqube-sonarqube.apps.tssc.rht-set.com/
-      user: reference-apps-sa
+      username: reference-apps-sa
 
   push-artifacts:
   - implementer: Maven
@@ -119,7 +119,7 @@ tssc-config:
       rules: cicd/ValidateEnv/
 
   uat:
-  - implementer: Maven
+  - implementer: MavenSeleniumCucumber
     config: {
       selenium-hub-url: http://67.207.93.102:4444
     }
