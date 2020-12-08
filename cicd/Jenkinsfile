@@ -22,5 +22,9 @@ ploigosWorkflowStandard(
     workflowWorkerImageContainerImageStaticVulnerabilityScan: 'ploigos/ploigos-tool-openscap:v0.14.0',
     workflowWorkerImageDeploy: 'ploigos/ploigos-tool-argocd:v0.14.0',
     workflowWorkerImageValidateEnvironmentConfiguration: 'ploigos/ploigos-tool-config-lint:v0.14.0',
-    workflowWorkerImageUAT: 'ploigos/ploigos-tool-maven:v0.14.0'
+    workflowWorkerImageUAT: 'ploigos/ploigos-tool-maven:v0.14.0',
+
+    stepRunnerUpdateLibrary: true,
+    stepRunnerLibSourceUrl: 'git+https://github.com/rhtconsulting/tssc-python-package.git@refactor',
+    verbose: 'true'
 )
