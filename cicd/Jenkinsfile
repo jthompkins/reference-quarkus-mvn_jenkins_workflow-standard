@@ -22,5 +22,7 @@ ploigosWorkflowStandard(
     workflowWorkerImageContainerImageStaticVulnerabilityScan: 'ploigos/ploigos-tool-openscap:v0.14.0',
     workflowWorkerImageDeploy: 'ploigos/ploigos-tool-argocd:v0.14.0',
     workflowWorkerImageValidateEnvironmentConfiguration: 'ploigos/ploigos-tool-config-lint:v0.14.0',
-    workflowWorkerImageUAT: 'ploigos/ploigos-tool-maven:v0.14.0'
+    workflowWorkerImageUAT: 'ploigos/ploigos-tool-maven:v0.14.0',
+    stepRunnerUpdateLibrary: true,
+    stepRunnerLibSourceUrl: "https://github.com/randy8/tssc-python-package@feature/randy8-hackathon"
 )
