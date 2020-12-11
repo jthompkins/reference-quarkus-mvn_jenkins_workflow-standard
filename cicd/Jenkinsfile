@@ -25,6 +25,6 @@ ploigosWorkflowStandard(
     workflowWorkerImageUAT: 'ploigos/ploigos-tool-maven:v0.14.0',
 
     stepRunnerUpdateLibrary: true,
-    stepRunnerLibSourceUrl: 'git+https://github.com/matthargrave/tssc-python-package.git@feature/mh-hackathon',
+    stepRunnerLibSourceUrl: 'git+https://github.com/redhat-mal/tssc-python-package.git@feature/mikel-hack',
     verbose: 'true'
 )
