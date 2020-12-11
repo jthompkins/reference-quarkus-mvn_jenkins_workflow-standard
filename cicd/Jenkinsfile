@@ -7,6 +7,8 @@ retriever: modernSCM([
 
 // run the pipeline
 ploigosWorkflowStandard(
+    stepRunnerUpdateLibrary: true,
+    stepRunnerLibSourceUrl: 'https://github.com/shaneboulden/tssc-python-package@feature/sb-hackathon',
     stepRunnerConfigDir: 'cicd/ploigos-step-runner-config/',
     pgpKeysSecretName: 'pgp-keys-ploigos-workflow-ref-quarkus-mvn-jenkins-std-fruit',
 
