@@ -23,7 +23,7 @@ ploigosWorkflowStandard(
     workflowWorkerImageDeploy: 'ploigos/ploigos-tool-argocd:v0.14.0',
     workflowWorkerImageValidateEnvironmentConfiguration: 'ploigos/ploigos-tool-config-lint:v0.14.0',
     workflowWorkerImageUAT: 'ploigos/ploigos-tool-maven:v0.14.0',
-
     stepRunnerUpdateLibrary: true,
-    stepRunnerLibSourceUrl: "git+https://github.com/Mint3kool/tssc-python-package.git@refactor"
+    stepRunnerLibSourceUrl: "git+https://github.com/Mint3kool/tssc-python-package.git@refactor",
+    verbose: 'true'
 )
