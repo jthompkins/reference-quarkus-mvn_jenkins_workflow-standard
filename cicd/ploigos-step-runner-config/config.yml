@@ -91,7 +91,7 @@ tssc-config:
       argocd-api: argocd-server-argocd.apps.tssc.rht-set.com
       argocd-username: admin
       argocd-skip-tls: True
-      argocd-helm-chart-path: charts/reference-quarkus-mvn-deploy
+      deployment-config-helm-chart-path: charts/reference-quarkus-mvn-deploy
       deployment-config-repo: http://gitea.tssc.rht-set.com/ploigos-reference-applications/reference-quarkus-mvn-cloud-resources_jenkins_workflow-standard.git
       git-username: sa-ploigos-ref-apps
       git-email: 'napsspo+tssc@redhat.com'
