@@ -91,14 +91,17 @@ tssc-config:
       argocd-api: argocd-server-argocd.apps.tssc.rht-set.com
       argocd-username: admin
       argocd-skip-tls: True
-      argocd-helm-chart-path: charts/reference-quarkus-mvn-deploy
+      deployment-config-helm-chart-path: charts/reference-quarkus-mvn-deploy
       deployment-config-repo: http://gitea.tssc.rht-set.com/ploigos-reference-applications/reference-quarkus-mvn-cloud-resources_jenkins_workflow-standard.git
       git-username: sa-ploigos-ref-apps
       git-email: 'napsspo+tssc@redhat.com'
-
-      # app specific
-      num-replicas: 1
-      route-enabled: true
+      environment-config:
+        DEV:
+          deployment-config-helm-chart-environment-value-file: values-DEV.yaml
+        TEST:
+          deployment-config-helm-chart-environment-value-file: values-TEST.yaml
+        PROD:
+          deployment-config-helm-chart-environment-value-file: values-PROD.yaml
 
   validate-environment-configuration:
   - implementer: ConfiglintFromArgocd
